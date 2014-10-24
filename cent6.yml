@@ -1,0 +1,31 @@
+---
+- hosts: all
+  user: vagrant
+  tasks:
+    - name: yum update
+      yum: name=* state=latest
+      sudo: yes
+
+    - name: install development tools
+      yum: name="@Development tools"
+      sudo: yes
+
+    - name: install deps
+      yum: name={{ item }}
+      sudo: yes
+      with_items:
+        - ruby
+        - texinfo
+        - bzip2-devel
+        - expat-devel
+        - ncurses-devel
+        - zlib-devel
+        - openssl-devel # git
+        - libcurl-devel # git
+
+    - name: install linuxbrew
+      git: repo=https://github.com/Homebrew/linuxbrew.git
+           dest=/home/vagrant/.linuxbrew
+
+# brew install git emacs tmux
+# brew install python mercurial
