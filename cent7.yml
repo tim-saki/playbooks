@@ -1,0 +1,17 @@
+---
+- hosts: all
+  user: vagrant
+  tasks:
+    - name: yum update
+      yum: name=* state=latest
+      sudo: yes
+    - name: install development tools
+      yum: name="@Development tools"
+      sudo: yes
+    - name: install packages
+      yum: name={{ item }}
+      sudo: yes
+      with_items:
+        - git
+        - memcached
+        - java-1.7.0-openjdk
