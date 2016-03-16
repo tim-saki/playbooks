@@ -32,3 +32,14 @@
         - mysql-community-libs
         - mysql-community-server
         - mysql-community-devel
+    - name: install linuxbrew deps
+      yum: name={{ item }}
+      sudo: yes
+      with_items:
+        - curl
+        - git
+        - irb
+        - python-setuptools
+        - ruby
+    - name: install linuxbrew
+      git: repo=https://github.com/Homebrew/linuxbrew.git dest=~/.linuxbrew
