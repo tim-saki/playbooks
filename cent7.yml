@@ -15,6 +15,7 @@
         - git
         - memcached
         - java-1.7.0-openjdk
+        - yum-utils
     - name: install mysql yum repository
       yum: name=http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm state=present
       sudo: yes
