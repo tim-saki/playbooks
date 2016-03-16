@@ -39,7 +39,14 @@
         - curl
         - git
         - irb
+        - m4
         - python-setuptools
         - ruby
+        - texinfo
+        - bzip2-devel
+        - curl-devel
+        - expat-devel
+        - ncurses-devel
+        - zlib-devel
     - name: install linuxbrew
       git: repo=https://github.com/Homebrew/linuxbrew.git dest=~/.linuxbrew
