@@ -19,3 +19,16 @@
     - name: install mysql yum repository
       yum: name=http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm state=present
       sudo: yes
+    - name: disable mysql57-community repository
+      command: yum-config-manager --disable mysql57-community
+      sudo: yes
+    - name: enable mysql56-community repository
+      command: yum-config-manager --enable mysql56-community
+      sudo: yes
+    - name: install mysql stuff
+      yum: name={{ item }}
+      sudo: yes
+      with_items:
+        - mysql-community-libs
+        - mysql-community-server
+        - mysql-community-devel
