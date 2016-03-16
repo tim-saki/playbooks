@@ -53,3 +53,9 @@
         - zlib-devel
     - name: install linuxbrew
       git: repo=https://github.com/Homebrew/linuxbrew.git dest=~/.linuxbrew
+    - name: install rvm, gpg stuff
+      command: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    - name: install rvm, get rvm installer
+      get_url: url=https://get.rvm.io dest=~/rvm-installer mode=0755
+    - name: install rvm, run installer
+      command: ~/rvm-installer
