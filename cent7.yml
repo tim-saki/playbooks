@@ -13,6 +13,9 @@
       sudo: yes
       with_items:
         - git
+        - mercurial
+        - tmux
+        - emacs
         - memcached
         - java-1.7.0-openjdk
         - yum-utils
